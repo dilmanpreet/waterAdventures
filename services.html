@@ -9,14 +9,24 @@
     <link rel="stylesheet/less" type="text/css" media="screen" href="stylesheets/water.less" />
     <link type="text/css" rel="stylesheet" href="stylesheets/water.css">
 	 <script src="https://cdnjs.cloudflare.com/ajax/libs/less.js/3.0.2/less.min.js" ></script>
-   
+	 
+  
 <!--[if lt IE 9]>
 <script src=" http://html5shim.googlecode.com/svn/trunk/html5.js ">
 </script>
 <![endif]--> 
-</head>
 
-<body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+    $("tr").hover(function(){
+        $(this).css("background-color", "red");
+        }, function(){
+        $(this).css("background-color", "blue");
+    });
+});
+</script>
+<body onload="onloadfn()">
 	<div class="wrapper">
 		<header>
 			<h1> Vishakhapatnam Water Adventures </h1>
@@ -25,7 +35,8 @@
 						<ul>
 							<li><a href="index.html">Home</a></li>
 							<li><a href="about.html">About</a></li>
-							<li><a href="services.html">Services</a></li>							
+							<li><a href="services.html">Services</a></li>
+							<li><a href="calendar.html">Calendar</a></li>							
 							<li><a href="contact.html">Contact</a></li>
 							<li><a href="login.php">Login</a></li>
 							<li><a href="offers.html">Offers</a></li>
@@ -34,27 +45,81 @@
 	<hr>
 	<main>	
 	 <h1> Services offered and charges</h1>
-	 <table>
-			<tr>
-				<th>Service</th>
-				<th>Charges</th>
-				<th>Time Taken</th>
+	 <table id="table" >
+
+			<tr id="offered">
+				<th id="services">Service</th>
+				<th id="charges">Charges</th>
+				<th id="time">Time Taken</th>
 			</tr>
-			<tr>
-				<td>Scuba Diving</td>
-				<td> CAD 100</td>
-				<td> 1 hr </td>
-			</tr>
-			<tr>
-				<td>Surfing</td>
-				<td> CAD 150</td>
-				<td> 1 hr </td>
-			</tr>
-			<tr>
-				<td>PaddleBoating</td>
-				<td> CAD 50</td>
-				<td> 3 hrs</td>
-			</tr>
+
+			<script type="text/javascript">
+
+				let servicess = [
+    {
+        Sevice: "Scuba Diving",
+        charges: "CAD 100", 
+        Time: "1 hr",
+        
+    },
+	{
+        Sevice: "Surfing",
+        charges: "CAD 100", 
+        Time: "1 hr",
+        
+    },
+	{
+        Sevice: "Scuba Diving",
+        charges: "CAD 150", 
+        Time: "1 hr",
+        
+    },
+	{
+	Sevice: "PaddleBoating",
+        charges: "CAD 50", 
+        Time: "3 hrs",
+        
+    },
+	];
+	function onloadfn() {
+
+	var Serive = document.getElementById("table");
+	
+
+	
+	servicess.forEach(ser => {
+		var i = document.createElement('tr');
+	console.log(i);
+	
+	
+
+	let j= 	document.createElement('td');	
+	console.log(j);
+	j.setAttribute("onclick","id", ser.Service);
+	i.appendChild(j);
+	j.innerHTML = ser.Sevice;
+
+	let k= 	document.createElement('td');
+	k.setAttribute("onclick","id", ser.charges);
+	i.appendChild(k);
+	k.innerHTML = ser.charges;
+
+	
+	let l= 	document.createElement('td');
+	l.setAttribute("onclick","id", ser.Time);
+	i.appendChild(l);
+	l.innerHTML = ser.Time;
+
+	
+	Serive.appendChild(i);
+
+	
+}
+)};
+
+			
+			
+			</script>
 			<tr>
 				<td></td>
 				<td colspan=2> All certified Instructors </td>

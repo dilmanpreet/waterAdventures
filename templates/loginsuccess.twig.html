@@ -36,11 +36,11 @@
     <h1>Welcome {{usersp | e}}</h1>
 
     <h2> Purchase Water Packages</h2>
-    <div class="packages">
+    <div class="services">
         {%for item in catalog %}
-        <div class="package_name">{{package.service}}</div>
-        <div class="cost">{{service.price}}</div> <!-- I should probably format the number-->
-        <div class="description">{{service.description}}</div>
+        <div class="services">{{services.name}}</div>
+        <div class="cost">{{services.price}}</div> <!-- I should probably format the number-->
+    
         {% endfor %}
     </div>
     <footer>
